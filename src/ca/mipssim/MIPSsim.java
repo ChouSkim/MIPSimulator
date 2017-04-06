@@ -18,7 +18,7 @@ import ca.mipssim.component.Simulator;
  */
 public class MIPSsim {
 
-	static ArrayList machineCode = new ArrayList();
+	static ArrayList machineCodeList = new ArrayList();
 	static String disassemblyResult = "disassembly";
 	static String simulationResult = "simulation";
 
@@ -27,10 +27,10 @@ public class MIPSsim {
 	 */
 	public static void main(String[] args) {
 		// Read file given by commandline.
-		machineCode = FileIOUtils.inputStringFromFile(args[0]);
+		machineCodeList = FileIOUtils.inputStringFromFile(args[0]);
 
 		// Disassemble.
-		Disassembler disassembler = new Disassembler(machineCode);
+		Disassembler disassembler = new Disassembler(machineCodeList);
 		disassemblyResult = disassembler.run();
 
 		// Simulate.
@@ -38,8 +38,8 @@ public class MIPSsim {
 		simulationResult = simulator.run();
 
 		// Write result to "disassembly.txt" and "simulation.txt"
-		FileIOUtils.writeStringToFile(disassemblyResult, "disassembly.txt");
-		FileIOUtils.writeStringToFile(simulationResult, "simulation.txt");
+		FileIOUtils.writeResultToFile(disassemblyResult, "disassembly.txt");
+		FileIOUtils.writeResultToFile(simulationResult, "simulation.txt");
 
 	}
 }

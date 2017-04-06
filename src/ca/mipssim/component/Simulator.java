@@ -7,7 +7,7 @@ package ca.mipssim.component;
  * @author ChouSkim
  * 
  */
-public class Simulator implements Executable {
+public class Simulator implements IExecutable {
 
 	/**
 	 * @param disassembler
@@ -19,7 +19,7 @@ public class Simulator implements Executable {
 	/**
 	 * Run the simulator and get the result.
 	 * 
-	 * @see ca.mipssim.component.Executable#run()
+	 * @see ca.mipssim.component.IExecutable#run()
 	 */
 	public String run() {
 		String result = "simulation";

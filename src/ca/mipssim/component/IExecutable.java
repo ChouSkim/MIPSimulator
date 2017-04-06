@@ -7,7 +7,7 @@ package ca.mipssim.component;
  * @author ChouSkim
  * 
  */
-public interface Executable {
+public interface IExecutable {
 	/**
 	 * 
 	 * @return The result in String format.
