@@ -19,5 +19,6 @@ public abstract class AbstractData extends AbstractBinary {
 		// TODO Auto-generated constructor stub
 	}
 
-	public abstract void calculate();
+	public abstract String calculate();
+
 }

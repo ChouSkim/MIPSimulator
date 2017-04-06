@@ -5,6 +5,7 @@ package ca.mipssim.model;
 
 import ca.mipssim.component.Disassembler;
 import ca.mipssim.model.data.AbstractData;
+import ca.mipssim.model.data.Integer.SignedInteger;
 import ca.mipssim.model.instruction.AbstractInstruction;
 import ca.mipssim.model.instruction.categoryone.BEQ;
 import ca.mipssim.model.instruction.categoryone.BGTZ;
@@ -25,6 +26,9 @@ import ca.mipssim.model.instruction.categorytwo.SUB;
 import ca.mipssim.model.instruction.categorytwo.XOR;
 
 /**
+ * A Simple Factory for create instructions and data according to the binary
+ * text.
+ * 
  * @author ChouSkim
  * 
  */
@@ -131,9 +135,10 @@ public class BinaryFactory {
 	 * @param binary
 	 * @return
 	 */
-	public static AbstractData parseData(String binary) {
-		// TODO Auto-generated method stub
-		return null;
+	public static AbstractData parseData(String binary, int currentLine) {
+		AbstractData result = new SignedInteger(binary, currentLine);
+
+		return result;
 	}
 
 	/**

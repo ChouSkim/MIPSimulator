@@ -49,16 +49,24 @@ public class Disassembler implements IExecutable {
 
 			// Add Second column : the address (in decimal) of that location.
 			result.append(String.valueOf(currentLine) + "\t");
+			// Update the number of current line.
 			currentLine = currentLine + 4;
 
 			if (!breakAppeared) {
+				// Parse instructions according to binary text. (Simple Factory
+				// Pattern)
 				AbstractInstruction instruction = BinaryFactory
 						.parseInstruction(binary, currentLine);
 
 				// Add Third column : the disassembled instruction.
 				result.append(instruction.parse());
 			} else {
-				AbstractData data = BinaryFactory.parseData(binary);
+				// Parse data according to binary text. (Simple Factory Pattern)
+				AbstractData data = BinaryFactory
+						.parseData(binary, currentLine);
+
+				// Add Third column : the disassembled data.
+				result.append(data.calculate());
 			}
 			result.append("\r\n");
 		}
