@@ -31,7 +31,6 @@ public class ADD extends CategoryTwo {
 	 */
 	public int execute(ArrayList registerList, ArrayList dataList, int PC,
 			int dataStart) {
-		System.out.println("ADD");
 		int source = ((Integer) registerList.get(this.rs)).intValue();
 		int target = ((Integer) registerList.get(this.rt)).intValue();
 

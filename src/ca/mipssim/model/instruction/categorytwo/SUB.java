@@ -31,7 +31,10 @@ public class SUB extends CategoryTwo {
 	 */
 	public int execute(ArrayList registerList, ArrayList dataList, int PC,
 			int dataStart) {
-		// TODO Auto-generated method stub
+		int source = ((Integer) registerList.get(this.rs)).intValue();
+		int target = ((Integer) registerList.get(this.rt)).intValue();
+
+		registerList.set(this.rd, Integer.valueOf(source - target));
 
 		return PC;
 	}

@@ -54,7 +54,6 @@ public class BEQ extends CategoryOne {
 	 */
 	public int execute(ArrayList registerList, ArrayList dataList, int PC,
 			final int dataStart) {
-		System.out.println("BEQ");
 		int source = ((Integer) registerList.get(this.rs)).intValue();
 		int target = ((Integer) registerList.get(this.rt)).intValue();
 

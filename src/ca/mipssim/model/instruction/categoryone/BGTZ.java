@@ -52,7 +52,6 @@ public class BGTZ extends CategoryOne {
 	 */
 	public int execute(ArrayList registerList, ArrayList dataList, int PC,
 			final int dataStart) {
-		System.out.println("BGTZ");
 		int source = ((Integer) registerList.get(this.rs)).intValue();
 
 		if (source > 0)

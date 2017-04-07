@@ -31,8 +31,6 @@ public class ADDI extends CategoryThree {
 	 */
 	public int execute(ArrayList registerList, ArrayList dataList, int PC,
 			int dataStart) {
-		// TODO Test.
-		System.out.println("ADDI");
 		int result = ((Integer) registerList.get(this.rs)).intValue()
 				+ this.immediate;
 		registerList.set(this.rt, Integer.valueOf(result));

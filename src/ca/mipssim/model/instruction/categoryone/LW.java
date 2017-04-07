@@ -51,9 +51,6 @@ public class LW extends CategoryOne {
 	 */
 	public int execute(ArrayList registerList, ArrayList dataList, int PC,
 			final int dataStart) {
-		// TODO Test.
-		System.out.println("LW : " + this.offset + " " + this.base);
-
 		int baseValue = ((Integer) registerList.get(this.base)).intValue();
 		int target_offset = (this.offset + baseValue - dataStart) >> 2;
 

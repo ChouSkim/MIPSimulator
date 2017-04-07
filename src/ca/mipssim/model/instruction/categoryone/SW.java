@@ -50,7 +50,6 @@ public class SW extends CategoryOne {
 	 */
 	public int execute(ArrayList registerList, ArrayList dataList, int PC,
 			int dataStart) {
-		// TODO Test.
 		int baseValue = ((Integer) registerList.get(this.base)).intValue();
 		int target_offset = (this.offset + baseValue - dataStart) >> 2;
 
@@ -60,8 +59,6 @@ public class SW extends CategoryOne {
 
 		dataList.set(target_offset, result);
 
-		System.out.println("SW: baseValue " + baseValue + " target_offset "
-				+ target_offset);
 		return PC;
 	}
 }
