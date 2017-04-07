@@ -19,4 +19,12 @@ public abstract class AbstractBinary {
 		this.machineCode = machineCode;
 		this.currentLine = currentLine;
 	}
+
+	public int getLineNumber() {
+		return this.currentLine;
+	}
+
+	public String getMachineCode() {
+		return this.machineCode;
+	}
 }

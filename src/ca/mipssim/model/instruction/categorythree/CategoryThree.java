@@ -28,25 +28,15 @@ public abstract class CategoryThree extends AbstractInstruction {
 				.intValue();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Format : Opcode rt, rs, immediate
 	 * 
 	 * @see ca.mipssim.model.IBinary#parse(java.lang.String)
 	 */
 	public String parse() {
-		// TODO Auto-generated method stub
-		return this.instName + " R" + this.rt + ", R" + this.rs + ", #"
-				+ this.immediate;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see ca.mipssim.model.instruction.IInstruction#getOpcode()
-	 */
-	public String getOpcode() {
-		// TODO Auto-generated method stub
-		return opcode;
+		this.assemblyCode = this.instName + " R" + this.rt + ", R" + this.rs
+				+ ", #" + this.immediate;
+		return this.assemblyCode;
 	}
 
 }

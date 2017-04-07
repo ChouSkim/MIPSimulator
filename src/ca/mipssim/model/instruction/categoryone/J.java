@@ -3,6 +3,8 @@
  */
 package ca.mipssim.model.instruction.categoryone;
 
+import java.util.ArrayList;
+
 /**
  * J(Jump) Description: This is a PC-region branch (not PC-relative); the
  * effective target address is in the ¡°current¡± 256 MB-aligned region. The low
@@ -36,6 +38,21 @@ public class J extends CategoryOne {
 	 * Format : J target
 	 */
 	public String parse() {
-		return this.instName + " #" + String.valueOf(this.instr_index);
+		this.assemblyCode = this.instName + " #"
+				+ String.valueOf(this.instr_index);
+		return this.assemblyCode;
+	}
+
+	/**
+	 * PC <- PC_{GPRLEN-1...28} || instr_index || 0^2
+	 * 
+	 * @see ca.mipssim.model.instruction.AbstractInstruction#execute(java.util.ArrayList
+	 *      , java.util.ArrayList, int)
+	 */
+	public int execute(ArrayList registerList, ArrayList dataList, int PC,
+			final int dataStart) {
+		System.out.println("J");
+
+		return this.instr_index - 4;
 	}
 }

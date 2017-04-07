@@ -3,6 +3,8 @@
  */
 package ca.mipssim.model.instruction.categoryone;
 
+import java.util.ArrayList;
+
 /**
  * BREAK(Breakpoint) Description: A breakpoint exception occurs, immediately and
  * unconditionally transferring control to the exception handler. The code field
@@ -29,8 +31,19 @@ public class BREAK extends CategoryOne {
 	 * Format : BREAK
 	 */
 	public String parse() {
-		return this.instName;
+		this.assemblyCode = this.instName;
+		return this.assemblyCode;
+	}
 
+	/**
+	 * SignalException(Breakpoint)
+	 * 
+	 * @see ca.mipssim.model.instruction.AbstractInstruction#execute(java.util.ArrayList,
+	 *      java.util.ArrayList, int)
+	 */
+	public int execute(ArrayList registerList, ArrayList dataList, int PC,
+			final int dataStart) {
+		return PC;
 	}
 
 }

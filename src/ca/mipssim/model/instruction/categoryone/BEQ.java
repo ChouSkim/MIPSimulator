@@ -3,6 +3,8 @@
  */
 package ca.mipssim.model.instruction.categoryone;
 
+import java.util.ArrayList;
+
 /**
  * BEQ(Branch on EQual) Description: if rs = rt then branch. (Page 60).
  * 
@@ -34,7 +36,31 @@ public class BEQ extends CategoryOne {
 	 * Format : BEQ rs, rt, offset
 	 */
 	public String parse() {
-		return this.instName + " R" + this.rs + ", R" + this.rt + ", #"
-				+ this.offset;
+		this.assemblyCode = this.instName + " R" + this.rs + ", R" + this.rt
+				+ ", #" + this.offset;
+		return this.assemblyCode;
+	}
+
+	/**
+	 * target_offset <- sign_extend (offset || 0^2) <BR/>
+	 * condition <- (GPR[rs] = GPR[rt])<BR/>
+	 * <BR/>
+	 * if (condition) then <BR/>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;PC<-PC+target_offset<BR/>
+	 * endif
+	 * 
+	 * @see ca.mipssim.model.instruction.AbstractInstruction#execute(java.util.ArrayList
+	 *      , java.util.ArrayList, int)
+	 */
+	public int execute(ArrayList registerList, ArrayList dataList, int PC,
+			final int dataStart) {
+		System.out.println("BEQ");
+		int source = ((Integer) registerList.get(this.rs)).intValue();
+		int target = ((Integer) registerList.get(this.rt)).intValue();
+
+		if (source == target)
+			PC = PC + this.offset;
+
+		return PC;
 	}
 }

@@ -11,6 +11,8 @@ import ca.mipssim.model.data.AbstractData;
  */
 public class SignedInteger extends AbstractData {
 
+	protected int data;
+
 	/**
 	 * @param machineCode
 	 * @param currentLine
@@ -56,9 +58,30 @@ public class SignedInteger extends AbstractData {
 		}
 
 		// Value
-		int result = Integer.valueOf(new String(bytes).substring(1, 32), 2)
+		this.data = Integer.valueOf(new String(bytes).substring(1, 32), 2)
 				.intValue();
 		// Sign
-		return (bytes[0] == '1' ? "-" : "") + result;
+		this.data = (bytes[0] == '1' ? -this.data : this.data);
+		return String.valueOf(this.data);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see ca.mipssim.model.data.AbstractData#getData()
+	 */
+	public int getData() {
+		// TODO Auto-generated method stub
+		return this.data;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see ca.mipssim.model.data.AbstractData#setData()
+	 */
+	public void setData(int value) {
+		// TODO Auto-generated method stub
+		this.data = value;
 	}
 }

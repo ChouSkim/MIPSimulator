@@ -61,9 +61,6 @@ public class FileIOUtils {
 			FileOutputStream out = new FileOutputStream(fileName, false);
 			out.write(result.getBytes("utf-8"));
 			out.close();
-
-			// TODO Remove test code.
-			System.out.println(result);
 		} catch (FileNotFoundException e) {
 			// new FileOutputStream
 			e.printStackTrace();

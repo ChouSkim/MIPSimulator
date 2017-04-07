@@ -33,18 +33,9 @@ public abstract class CategoryTwo extends AbstractInstruction {
 	 * @see ca.mipssim.model.IBinary#parse(java.lang.String)
 	 */
 	public String parse() {
-		return this.instName + " R" + this.rd + ", R" + this.rs + ", R"
-				+ this.rt;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see ca.mipssim.model.instruction.IInstruction#getOpcode()
-	 */
-	public String getOpcode() {
-		// TODO Auto-generated method stub
-		return opcode;
+		this.assemblyCode = this.instName + " R" + this.rd + ", R" + this.rs
+				+ ", R" + this.rt;
+		return this.assemblyCode;
 	}
 
 }

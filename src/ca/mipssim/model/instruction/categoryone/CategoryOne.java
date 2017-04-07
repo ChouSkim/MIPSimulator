@@ -9,7 +9,7 @@ import ca.mipssim.model.instruction.AbstractInstruction;
  * @author ChouSkim
  * 
  */
-public class CategoryOne extends AbstractInstruction {
+public abstract class CategoryOne extends AbstractInstruction {
 
 	/**
 	 * 
@@ -27,18 +27,7 @@ public class CategoryOne extends AbstractInstruction {
 	 * @see ca.mipssim.model.instruction.IInstruction#parse(java.lang.String)
 	 */
 	public String parse() {
-		// TODO Auto-generated method stub
-		return "";
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see ca.mipssim.model.instruction.IInstruction#getOpcode()
-	 */
-	public String getOpcode() {
-		// TODO Auto-generated method stub
-		return opcode;
+		return this.assemblyCode;
 	}
 
 }

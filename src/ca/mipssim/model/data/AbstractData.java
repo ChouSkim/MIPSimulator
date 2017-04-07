@@ -10,6 +10,7 @@ import ca.mipssim.model.AbstractBinary;
  * 
  */
 public abstract class AbstractData extends AbstractBinary {
+
 	/**
 	 * @param machineCode
 	 * @param currentLine
@@ -21,4 +22,14 @@ public abstract class AbstractData extends AbstractBinary {
 
 	public abstract String calculate();
 
+	/**
+	 * @return
+	 */
+	public abstract int getData();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public abstract void setData(int value);
 }
