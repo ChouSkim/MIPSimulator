@@ -107,7 +107,7 @@ public class Disassembler implements IExecutable {
 			// Add the data to list, which will be accessed by Simulator.
 			this.dataList.add(data);
 		}
-		result.append("\r\n");
+		result.append(System.getProperty("line.separator"));
 
 		// Update the number of current line.
 		currentLine = currentLine + 4;

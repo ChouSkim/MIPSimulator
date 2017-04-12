@@ -81,15 +81,17 @@ public class Simulator implements IExecutable {
 	 * @param instruction
 	 */
 	private void getFrame(StringBuilder result, AbstractInstruction instruction) {
-		result.append("--------------------\r\n");
+		result.append("--------------------"
+				+ System.getProperty("line.separator"));
 		result.append("Cycle:" + this.currentCycle + "\t"
 				+ instruction.getLineNumber() + "\t"
-				+ instruction.getAssemblyCode() + "\r\n");
+				+ instruction.getAssemblyCode()
+				+ System.getProperty("line.separator"));
 
 		this.printRegistersBlock(result);
 		this.printDataBlock(result);
 
-		result.append("\r\n");
+		result.append(System.getProperty("line.separator"));
 	}
 
 	/**
@@ -98,17 +100,17 @@ public class Simulator implements IExecutable {
 	 * @param result
 	 */
 	private void printRegistersBlock(StringBuilder result) {
-		result.append("\r\nResigters");
-		result.append("\r\nR00:");
+		result.append(System.getProperty("line.separator") + "Resigters");
+		result.append(System.getProperty("line.separator") + "R00:");
 		for (int i = 0; i < 8; i++)
 			result.append("\t" + registerList.get(i));
-		result.append("\r\nR08:");
+		result.append(System.getProperty("line.separator") + "R08:");
 		for (int i = 8; i < 16; i++)
 			result.append("\t" + registerList.get(i));
-		result.append("\r\nR16:");
+		result.append(System.getProperty("line.separator") + "R16:");
 		for (int i = 16; i < 24; i++)
 			result.append("\t" + registerList.get(i));
-		result.append("\r\nR24:");
+		result.append(System.getProperty("line.separator") + "R24:");
 		for (int i = 24; i < 32; i++)
 			result.append("\t" + registerList.get(i));
 	}
@@ -123,7 +125,9 @@ public class Simulator implements IExecutable {
 		// How much data has been printed.
 		int dataPrinted = 0;
 
-		result.append("\r\n\r\nData\r\n");
+		result.append(System.getProperty("line.separator")
+				+ System.getProperty("line.separator") + "Data"
+				+ System.getProperty("line.separator"));
 		while (dataLeft / 8 > 0) {
 			result.append(DC + ":");
 			for (int i = 0; i < 8; i++) {
@@ -131,7 +135,7 @@ public class Simulator implements IExecutable {
 						+ ((AbstractData) dataList.get(i + dataPrinted))
 								.getData());
 			}
-			result.append("\r\n");
+			result.append(System.getProperty("line.separator"));
 
 			//
 			dataPrinted = dataPrinted + 8;
@@ -147,7 +151,7 @@ public class Simulator implements IExecutable {
 			for (int i = 0; i < dataLeft; i++) {
 				result.append("\t" + dataList.get(i + dataPrinted));
 			}
-			result.append("\r\n");
+			result.append(System.getProperty("line.separator"));
 		}
 	}
 
